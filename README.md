@@ -1,5 +1,5 @@
 # Class-notes-site
-B-Tech ,ECE class notes R23 <pre>
+B-Tech ,ECE class notes R23 
 <html>
 <head><meta charset="utf-8"></head>
 <body>
