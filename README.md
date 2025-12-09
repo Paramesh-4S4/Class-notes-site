@@ -1,6 +1,5 @@
 # 📚 Class Notes Site – B.Tech ECE (R23)
-
-A simple front-end website for accessing B-Tech ECE class notes.  
+ 
 The website includes an email entry screen and a notes section with clickable links.
 
 
