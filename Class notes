@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+    }
+    header {
+      background: #4a90e2;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .pdf-list {
+      list-style: none;
+      padding: 0;
+    }
+    .pdf-item {
+      background: #e9f1ff;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pdf-item a {
+      text-decoration: none;
+      color: #2c6ee8;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>Class Notes PDFs</header>
+
+  <div class="container">
+    <h2>Available Notes</h2>
+    <ul class="pdf-list">
+      <!-- Add your PDFs below -->
+      <li class="pdf-item">
+        <span>Chapter 1 - Introduction</span>
+        <a href="pdfs/chapter1.pdf" target="_blank">Open PDF</a>
+      </li>
+      <li class="pdf-item">
+        <span>Chapter 2 - Theory</span>
+        <a href="pdfs/chapter2.pdf" target="_blank">Open PDF</a>
+      </li>
+    </ul>
+  </div>
+
+  <footer>© 2025 Class Notes</footer>
+</body>
+</html>
