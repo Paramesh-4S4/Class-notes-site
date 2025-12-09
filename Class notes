@@ -5,72 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Class Notes</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f2f2f2;
-    }
-    header {
-      background: #4a90e2;
-      padding: 20px;
-      text-align: center;
-      color: #fff;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .pdf-list {
-      list-style: none;
-      padding: 0;
-    }
-    .pdf-item {
-      background: #e9f1ff;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .pdf-item a {
-      text-decoration: none;
-      color: #2c6ee8;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      color: #666;
-    }
+    :body{--bg:#f6f8fb;--card:#ffffff;--accent:#0b5cff;--muted:#6b7280}
+    *{box-sizing:border-box;font-family:Arial, sans-serif; -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#eef4ff);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+    .wrap{width:100%;max-width:820px}
+    .card{background:var(--card);border-radius:12px;padding:28px 28px 36px;box-shadow:0 6px 24px rgba(11,92,255,0.06)}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7fb3ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px}
+    h1{margin:0;font-size:20px}
+    p.lead{color:var(--muted);margin:6px 0 20px}
+
+    form{display:flex;gap:12px;flex-wrap:wrap}
+    input[type="email"]{flex:1;padding:12px 14px;border-radius:8px;border:1px solid #e6e9ef;background:#fbfdff;font-size:15px}
+    button{padding:11px 16px;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:600;cursor:pointer}
+    button.secondary{background:transparent;color:var(--accent);border:1px solid rgba(11,92,255,0.12)}
+
+    .notes{margin-top:22px;display:none}
+    .notes.show{display:block}
+    .notes h2{margin:4px 0 10px}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:12px}
+    .list{display:grid;grid-template-columns:1fr;gap:12px}
+    .note{padding:14px;border-radius:8px;border:1px solid #eef2ff;background:linear-gradient(180deg,#fff,#fbfdff);display:flex;align-items:center;justify-content:space-between}
+    .note .left{display:flex;gap:12px;align-items:center}
+    .badge{width:44px;height:44px;border-radius:8px;background:#f0f8ff;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    .note a{color:var(--accent);text-decoration:none;font-weight:600}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* small screens */
+    @media (max-width:520px){.card{padding:18px}.logo{width:46px;height:46px}}
   </style>
 </head>
 <body>
-  <header>Class Notes PDFs</header>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <div class="logo">CN</div>
+        <div>
+          <h1>Class-notes-site — B.Tech, ECE (R23)</h1>
+          <p class="lead">Enter your email to get access to the notes page. We only store it locally (no backend).</p>
+        </div>
+      </header>
 
-  <div class="container">
-    <h2>Available Notes</h2>
-    <ul class="pdf-list">
-      <!-- Add your PDFs below -->
-      <li class="pdf-item">
-        <span>Chapter 1 - Introduction</span>
-        <a href="pdfs/chapter1.pdf" target="_blank">Open PDF</a>
-      </li>
-      <li class="pdf-item">
-        <span>Chapter 2 - Theory</span>
-        <a href="pdfs/chapter2.pdf" target="_blank">Open PDF</a>
-      </li>
-    </ul>
+      <main>
+        <form id="emailForm" onsubmit="return false;">
+          <input id="emailInput" type="email" placeholder="Enter your email (e.g. student@example.com)" required />
+          <button id="getBtn" type="submit">Get Notes</button>
+          <button id="skipBtn" class="secondary" type="button">Skip & Show</button>
+        </form>
+
+        <div id="notes" class="notes" aria-hidden="true">
+          <h2>ECE Class Notes — R23</h2>
+          <div class="meta">B-Tech, ECE — organized by semester. Click a link to open in a new tab.</div>
+
+          <div class="list">
+            <div class="note">
+              <div class="left"><div class="badge">2-1</div><div><div><strong>ECE 2-1 NOTES</strong></div><div class="muted">Semester: 2-1</div></div></div>
+              <div><a href="https://drive.google.com/drive/folders/1pjBe1Q9QrcFKOsK6hZhKsjljReRwYnOM" target="_blank" rel="noopener">Open</a></div>
+            </div>
+
+            <div class="note">
+              <div class="left"><div class="badge">2-2</div><div><div><strong>ECE 2-2 NOTES</strong></div></div></div>
+              <div><a href="https://drive.google.com/drive/folders/1-2laYHtoHE_I5_A7tm5QErt2fk9Aq2lN" target="_blank" rel="noopener">Open</a></div>
+            </div>
+
+            <div class="note">
+              <div class="left"><div class="badge">3-1</div><div><div><strong>ECE 3-1 NOTES</strong></div></div></div>
+              <div><a href="https://drive.google.com/drive/folders/1ZA_9NhMEwKwxPyEJZJlKboDX-29o9yns" target="_blank" rel="noopener">Open</a></div>
+            </div>
+
+            <div class="note">
+              <div class="left"><div class="badge">3-2</div><div><div><strong>ECE 3-2 NOTES</strong></div></div></div>
+              <div><a href="https://drive.google.com/drive/folders/1V6XbUAtCv5OtLUH5V3oR9n8X0uENzryF" target="_blank" rel="noopener">Open</a></div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="message" style="display:none;margin-top:12px;color:green;font-weight:600">Thanks — your email is saved in your browser.</div>
+
+      </main>
+
+      <footer>Tip: To host this page on GitHub Pages, upload this file as <code>index.html</code> to your repository and enable Pages (instructions below).</footer>
+    </div>
   </div>
 
-  <footer>© 2025 Class Notes</footer>
+  <script>
+    const form = document.getElementById('emailForm');
+    const input = document.getElementById('emailInput');
+    const notes = document.getElementById('notes');
+    const message = document.getElementById('message');
+    const skipBtn = document.getElementById('skipBtn');
+
+    function showNotes(){
+      notes.classList.add('show');
+      notes.setAttribute('aria-hidden','false');
+    }
+
+    function saveEmail(e){
+      const email = input.value.trim();
+      if(!email) return;
+      // basic email pattern
+      const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!pattern.test(email)){
+        alert('Please enter a valid email address.');
+        return;
+      }
+      try{
+        localStorage.setItem('classnotes_email', email);
+        message.style.display = 'block';
+      }catch(err){
+        console.warn('Could not save to localStorage', err);
+      }
+      showNotes();
+    }
+
+    form.addEventListener('submit',(ev)=>{ ev.preventDefault(); saveEmail(); });
+    skipBtn.addEventListener('click', showNotes);
+
+    // If email already saved, show notes immediately
+    window.addEventListener('load', ()=>{
+      const e = localStorage.getItem('classnotes_email');
+      if(e){ input.value = e; message.style.display = 'block'; showNotes(); }
+    });
+
+  </script>
 </body>
 </html>
